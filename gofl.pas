@@ -12,7 +12,6 @@ const
 	Update_Time : Cardinal = 1000;
 var
 	Current, Next: Array[0..100] of Boolean;
-	test: Integer = 0;
 
 function Get_Neighbors(index: Integer): Integer; var
 	i, res, check: Integer;
@@ -65,7 +64,7 @@ procedure Draw_World;
 var 
 	x, y: Integer;
 begin
-	Write(#27'[2J');
+	Write(#27'[2J'#27'[H'); (* clear screen and restore cursor position*)
 	for y := 0 to 9 do begin
 		for x := 0 to 9 do begin
 			if Current[y*10+x] then 
